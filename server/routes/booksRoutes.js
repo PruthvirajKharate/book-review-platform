@@ -6,7 +6,9 @@ const {
   addBook,
 } = require("../controller/bookController");
 const authMiddleware = require("../middleware/authMiddleware");
+const upload = require("../middleware/upload");
 
+router.post('/create', upload.single('image'), addBook);
 router.get("/", getAllBooks);
 router.get("/:id", getBooksById);
 router.post("/",authMiddleware, addBook);

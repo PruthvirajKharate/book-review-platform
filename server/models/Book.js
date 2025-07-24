@@ -8,6 +8,9 @@ const bookSchema = new mongoose.Schema({
   author: String,
   description: String,
   genre: String,
+  coverImage: String,
+  visitCount: {type: Number, default: 0},
+  ratings: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
 });
 

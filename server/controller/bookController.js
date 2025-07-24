@@ -3,7 +3,9 @@ const Book = require("../models/Book");
 exports.addBook = async (req, res) => {
   try {
     const { title, author, description, genre } = req.body;
-    const newBook = await Book.create({ title, author, description, genre });
+    const coverImage = req.file ? `uploads/${req.file.filename}` : null;
+
+    const newBook = await Book.create({ title, author, description, genre, coverImage });
     await newBook.save();
     res.status(201).json({ message: "Book added successfully", book: newBook });
   } catch (error) {
