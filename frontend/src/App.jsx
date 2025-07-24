@@ -2,9 +2,9 @@ import React from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
 import AuthProvider from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BookReviewDashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
@@ -31,7 +31,7 @@ const App = () => {
             path="/dashboard"
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <BookReviewDashboard />
               </ProtectedRoute>
             }
           />
